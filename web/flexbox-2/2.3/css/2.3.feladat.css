@@ -1,5 +1,5 @@
 body{
-    border: 0;
+    margin: 0;
 }
 .tarolo{
     width: 100%;
@@ -33,6 +33,9 @@ body{
     background-color: purple;
     height: 100px;
     width: 100px;
-    margin: 2px;
+    margin-left: -40px;
     
+}
+li{
+    list-style-type: none;
 }

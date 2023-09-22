@@ -1,5 +1,5 @@
 body{
-    border: 0;
+    margin: 0;
 }
 .tarolo{
     width: 100%;
@@ -7,7 +7,7 @@ body{
     display: flex;
     background-color: yellow;
     flex-direction: row;
-    justify-content: baseline;
+    justify-content: flex-start;
     align-items: center;
     
     
@@ -34,6 +34,9 @@ body{
     background-color: purple;
     height: 100px;
     width: 100px;
-    margin: 2px;
-    
+    margin-right: 50px;
+    margin-left: -45px;
+}
+li{
+    list-style-type: none;
 }
