@@ -1,0 +1,42 @@
+body{
+    background-color: peachpuff;
+    margin: 0;
+}
+.tarolo1{
+    width: 40%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    background-color: cyan;
+    
+
+}
+.tarolo2{
+    width: 40%;
+    height: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    
+}
+.tarolo3{
+    width: 40%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    background-color: blue;
+}
+.piros{
+    background-color: red;
+    flex-grow: 1;
+}
+.narancs{
+    background-color: orange;
+    flex-grow: 0.2;
+    margin-right: 45px;
+}
+.lila{
+    background-color: purple;
+    flex-grow: 0.2;
+    margin-left: 45px;
+}

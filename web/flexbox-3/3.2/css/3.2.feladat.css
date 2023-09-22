@@ -1,0 +1,60 @@
+body{
+    margin: 0;
+}
+.tarolo1{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    background-color: purple;
+    
+
+}
+.tarolo2{
+    width: 100%;
+    height: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.tarolo3{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+
+    
+}
+.cian{
+    background-color: cyan;
+    margin-top: 17px;
+    margin-right: -50px;
+    margin-bottom: 17px;
+    margin-left: 75px;
+    flex-grow: 0.055;
+}
+.item{
+    width: 100%;
+}
+.zold{
+    
+    background-color: green;
+    margin: 5px;
+    margin-left: 75px;
+    flex-grow: 1;
+}
+.sarga{
+    
+    background-color: yellow;
+    flex-grow: 2;
+    margin: 5px;
+    margin-right: 75px;
+}
+.szurke{
+    background-color: gray;
+    height: 75px;
+    margin-left: 70px;
+    margin-right: 75px;
+    flex-grow: 1;
+}

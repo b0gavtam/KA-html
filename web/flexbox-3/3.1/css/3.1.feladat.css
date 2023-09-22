@@ -1,0 +1,37 @@
+body{
+    border: 0;
+    display:contents;
+}
+.tarolo1{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    background-color: purple;
+    justify-content: flex-start;
+
+}
+.tarolo2{
+    width: 100%;
+    height: 800px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.cian{
+    background-color: cyan;
+    margin: 5px;
+    flex-grow: 0.06;
+}
+.item{
+    width: 100%;
+}
+.zold{
+    
+    background-color: green;
+    flex-grow: 1;
+}
+.sarga{
+    
+    background-color: yellow;
+    flex-grow: 2;
+}
