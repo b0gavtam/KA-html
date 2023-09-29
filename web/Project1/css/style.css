@@ -1,0 +1,30 @@
+body{
+    background-image: url(lighttér.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+h1{
+    border: 10px transparent whitesmoke;
+}
+.nap{
+    border-radius: 2px;
+    border-style: groove;
+    border: 3px;
+}
+.container{
+    display: flex;
+    height: 100%;
+    width: 80%;
+    border: 10px rgba(255, 255, 255, 0.8);
+}
+.cimhetkoznap{
+    display: flex;
+}
+.hetkoznap{
+    display: flex;
+    flex-direction: column;
+}
+.orak{
+    background-image: radial-gradient(left, crimson,cyan);
+}
