@@ -5,26 +5,32 @@ body{
 
 }
 h1{
-    border: 10px transparent whitesmoke;
+    background: white;
+    opacity: 0.3;
+    
 }
-.nap{
-    border-radius: 2px;
-    border-style: groove;
-    border: 3px;
-}
+
 .container{
     display: flex;
-    height: 100%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height:950px;
     width: 80%;
-    border: 10px rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.3);
+    margin: auto;
+    border-radius: 20px;
+    
 }
 .cimhetkoznap{
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
-.hetkoznap{
-    display: flex;
-    flex-direction: column;
-}
-.orak{
-    background-image: radial-gradient(left, crimson,cyan);
+/*.orak{
+    
+}*/
+.ora{
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    font-size: large;
 }
