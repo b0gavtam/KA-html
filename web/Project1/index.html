@@ -5,13 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
     <title>Órarend</title>
 </head>
 <body>
+    <Header id="header">Órarend</Header>
+    <div class="gomb">
+        <button type="button" id="button" onclick="Váltás()"><img src="css/darkmode.png" alt=""></button>
+    </div>
     <div class="container">
-        <h1>Órarend</h1>
             <div class="cimhetkoznap">
-                <div class="nap">Hétfő
+                <div class = "napbox">
+                    <p class="nap">Hétfő</p>
                     <div class="orak">
                         <div class="ora">8:00-8:45 IKT II.</div>
                         <div class="ora">8:55-9:40 aszalfeljl</div>
@@ -20,11 +25,12 @@
                         <div class="ora">11:45-12:30 Ir</div>
                         <div class="ora">12:45-13:30 tört</div>
                         <div class="ora">13:40-14:25 test</div>
-                        <div class="ora">14:30-15:15 test</div>
+                        <div class="ora">14:30-15:15 test</div>  
                     </div>
                 </div>
-
-                <div class="nap">Kedd
+                
+                <div class = "napbox">
+                    <p class="nap">Kedd</p>
                     <div class="orak">
                         <div class="ora">8:00-8:45 Mat-em</div>
                         <div class="ora">8:55-9:40 Mat</div>
@@ -36,8 +42,9 @@
                         <div class="ora">14:30-15:15 Of</div>
                     </div>
                 </div>
-
-                <div class="nap">Szerda
+                
+                <div class = "napbox">
+                    <p class="nap">Szerda</p>
                     <div class="orak">
                         <div class="ora">8:00-8:45 -</div>
                         <div class="ora">8:55-9:40 -</div>
@@ -50,8 +57,9 @@
                     </div>
                 </div>
 
-                <div class="nap">Csütörtök
-                    <div class="orak">
+                <div class = "napbox">
+                    <p class="nap">Csütörtök</p>
+                    <div class="orak" id="csutortok">
                         <div class="ora">8:00-8:45 Mat-em</div>
                         <div class="ora">8:55-9:40 Ir</div>
                         <div class="ora">9:55-10:40 tört</div>
@@ -62,32 +70,32 @@
                         <div class="ora">14:30-15:15 -</div>
                     </div>
                 </div>
-                
-
-                <div class="nap">Péntek
+                    
+                    
+                <div class = "napbox">
+                    <p class="nap">Péntek</p>
                     <div class="orak">
                         <div class="ora">8:00-8:45 Szang</div>
                         <div class="ora">8:55-9:40 W(l)</div>
                         <div class="ora">9:55-10:40 webprg</div>
                         <div class="ora">10:50-11:35 Ipl(l)</div>
                         <div class="ora">11:45-12:30 Mat</div>
-                        <div class="ora">12:45-13:30 IKT II.</div>
+                        <div class="ora"">12:45-13:30 IKT II.</div>
                         <div class="ora">13:40-14:25 aszalfejl</div>
                         <div class="ora">14:30-15:15 test</div>
-                    
                     </div>
                 </div>
+                
             </div>
-
+        
         <div class="cimhetvege">
-            <div class="hetvege">
-                <div class="nap">Szombat</div>
-                <div class="orak">Nincs tanítás</div>
-
-                
-                
-                <div class="nap">Vasárnap</div>
-                <div class="orak">Nincs tanítás</div>
+            <div class="napbox">
+                <p class="nap" id="hetvege">Szombat</p>
+                <div class="ora">Nincs tanítás</div>
+            </div>
+            <div class="napbox">
+                <p class="nap" id="hetvege">Vasárnap</p>
+                <div class="ora">Nincs tanítás</div>
             </div>
         </div>    
 

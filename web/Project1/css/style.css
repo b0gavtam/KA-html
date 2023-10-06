@@ -4,33 +4,86 @@ body{
     background-size: cover;
 
 }
-h1{
+header{
+    display: flex;
     background: white;
-    opacity: 0.3;
-    
+    opacity: 0.7;
+    flex-grow: 0.03;
+    font-size: 50px;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 30px;
+    width: 90%;
+    font-weight: bold;   
+}
+button{
+    background: url(darkmode.png);
+    margin-bottom: 20px;
+}
+.gomb{
+    display: flex;
+    justify-content: center;
+}
+.dark-mode{
+    background-image: url(darktér.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.dark-gomb{
+    background: url(lightmode.png);
+    img{
+        visibility: hidden;
+    }
 }
 
 .container{
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     height:950px;
-    width: 80%;
+    width: 90%;
     background: rgba(255, 255, 255, 0.3);
     margin: auto;
     border-radius: 20px;
+    justify-content: space-between;
     
 }
 .cimhetkoznap{
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    width: 100%;
+    justify-content: space-between;
 }
-/*.orak{
-    
-}*/
+.cimhetvege{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.nap{
+    margin: 70px;
+    font-size: 50px;
+    height: 70px;
+    padding: 20px;
+    width: max-content;
+    font-weight: bold;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.5);
+
+}
 .ora{
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    font-size: large;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    font-size: 25px;
+    margin:20px;
+    width: 220px;
+    text-align: center;
+}
+.napbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#hetvege{
+    margin: 30px;
 }
