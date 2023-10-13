@@ -1,0 +1,17 @@
+body{
+    background-color: lightpink;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+}
+.card{
+    justify-content: flex-start;
+    flex-direction: row;
+    border-radius: 10px;
+    border: rgba(245, 245, 245, 0.7);
+    font-size: larger;
+    
+}
