@@ -8,7 +8,7 @@ console.log(js);
 
 function isEmpty(obj) {
     let obj = js;
-    if (isEmpty(obj) == true) {
+    if (isEmpty(obj) == "") {
         true;
     }
     else{
