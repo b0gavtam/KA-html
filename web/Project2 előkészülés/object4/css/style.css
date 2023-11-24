@@ -1,0 +1,29 @@
+body{
+    height: 100vh;
+    margin: 0;
+    background: radial-gradient(circle, purple, rgba(165, 42, 42, 0.7),black);
+      
+}
+.kartyak{
+    
+    border: 5px solid black;
+    margin: auto;
+    width: 15%;
+    padding: 5px;
+    margin-bottom: 10px;
+    background: radial-gradient(cyan,magenta);
+    
+}
+.szoveg{
+    text-align: center;
+    border: 5px solid black;
+    
+}
+
+h3,span{
+    font-size: 120%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+img{
+    width:100%
+}

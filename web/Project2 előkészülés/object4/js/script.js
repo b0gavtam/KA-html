@@ -9,6 +9,14 @@ let heroes = [
 let templateLiteral = ``;
 for (let i = 0; i < heroes.length; i++){
     console.log(heroes[i].firstName, heroes[i].lastName, heroes[i].job + "\n")
-    templateLiteral += `<p>${heroes[i].firstName}, ${heroes[i].lastName}, ${heroes[i].job}</p>`
+    templateLiteral += 
+    `<div class="kartyak">
+            <img src="${heroes[i].firstName}.png">
+            <div class="szoveg">
+                <h3>${heroes[i].firstName}, ${heroes[i].lastName}</h3>
+                <span>${heroes[i].job}</span>
+            </div>
+        </div>
+        `
 }
 document.body.innerHTML = templateLiteral;
