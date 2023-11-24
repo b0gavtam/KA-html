@@ -6,16 +6,16 @@ console.log(`${js.firstname}${js.lastname}`);
 delete js.firstname;
 console.log(js);
 
-function isEmpty(obj) {
-    let obj = js;
-    if (isEmpty(obj) == "") {
+const p = js;
+function isEmpty(p) {
+    if (p == "{}") {
         true;
     }
     else{
         false;
     }
 }
-console.log(isEmpty(obj));
+console.log(isEmpty(p));
 
 let fizetes = {
     Anna : 2100,
@@ -23,9 +23,9 @@ let fizetes = {
     Emil : 2050,
     Gerald : 2920
 }
-let osszeg;
-for(let i in fizetes){
-    osszeg += fizetes[i];
+let osszeg = 0;
+for(let property in fizetes){
+    osszeg += fizetes[property];
 }
 console.log(fizetes);
 console.log(osszeg);
