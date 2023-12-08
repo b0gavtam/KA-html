@@ -1,0 +1,21 @@
+.container{
+    display: grid;
+    background-color: blue;
+    grid-template:
+     "a b c"
+     "d e f"
+     "g h i"
+     "j k l";
+    height: fit-content;
+    width: fit-content;
+}
+.item{
+    background-color: orange;
+    margin-top: 50px;
+    margin-right: 30px;
+    margin-left: 30px;
+    border-radius: 20px;
+    height: 300px;
+    width: 300px;
+
+}

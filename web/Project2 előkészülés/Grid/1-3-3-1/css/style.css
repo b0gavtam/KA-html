@@ -1,0 +1,25 @@
+.container{
+    display: grid;
+    background-color: blue;
+    grid-template: 
+    "a b c"
+    "d e f"
+    "g h i"
+    "j k l";
+    height: 1500px;
+    width: 1500px;
+}
+.item{
+    background-color: orange;
+    margin-top: 50px;
+    margin-right: 0px;
+    margin-left: 80px;
+    border-radius: 20px;
+    height: 300px;
+    width: 300px;
+    opacity: 1;
+
+}
+.block{
+    opacity: 0;
+}
