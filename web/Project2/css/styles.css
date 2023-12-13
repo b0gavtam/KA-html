@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../imgs/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  #jatekzona {
+    display: grid;
+    grid-template:
+    "a b c d"
+    "e f g h"
+    "i j k l";
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 5%;
+  }
+
+  .card {
+    height:400px;
+    width: 290px;
+    margin: 5px;
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    font-size: 0px;
+    justify-content: center;
+    opacity: 0.7;
+}
+.wood{
+    background-image: url("../imgs/wood.png");
+}
+.brick{
+    background-image: url("../imgs/brick.png");
+}
+.grain{
+    background-image: url("../imgs/grain.png");
+}
+.ore{
+    background-image: url("../imgs/ore.png");
+}
+.livestock{
+    background-image: url("../imgs/livestock.png");
+}
+.devcard{
+    background-image: url("../imgs/devcard.png");
+}
+.knight{
+    background-image: url("../imgs/knight.png");
+}
+.monopoly{
+    background-image: url("../imgs/monopoly.png");
+}
