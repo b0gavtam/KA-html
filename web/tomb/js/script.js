@@ -1,4 +1,4 @@
-let tomb = [1,2,3,4,5];
+ let tomb = [1,2,3,4,5];
 function elso() 
 {
     let kiiras = document.getElementById("kiiras");
