@@ -1,4 +1,4 @@
-let number = "454793";
+let n = "454793";
 function dash(n) {
     for (let i = 0; i < n.length; i++) {
         n.split("")
@@ -7,7 +7,12 @@ function dash(n) {
                 return n[i] + "-";
             }
         }
+        else{
+            return n[i];
+        }
         
     }
     n.join();
+    return n;
 }
+console.log(dash(n));
