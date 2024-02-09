@@ -3,7 +3,7 @@ function Fibonacci(t) {
     let sz2 = 1;
     let temp = 0;
 
-    for (let i = 0; i < t.length; i++) {
+    for (let i = 0; i < t; i++) {
         temp = sz1 + sz2;
         sz1 = sz2;
         sz2 = temp;
