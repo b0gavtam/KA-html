@@ -1,3 +1,5 @@
+courseid = document.getElementById("courseid")
+
 fetch( 'https://vvri.pythonanywhere.com/api/courses')
         .then(response => response.json())
         .then(data => {
