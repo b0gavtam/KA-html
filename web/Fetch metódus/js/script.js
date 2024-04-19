@@ -5,7 +5,7 @@ fetch("https://jsonplaceholder.typicode.com/todos)"
         json.forEach(user => {
             li += `<tr>
                 <td>${user.name} </td>
-                <td>${user.email}</td>        
+                <td>${user.email}</td>     
             </tr>`;
         });
     document.getElementById("users").innerHTML = li;

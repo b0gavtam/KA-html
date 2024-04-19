@@ -1,11 +1,20 @@
-courseid = document.getElementById("courseid")
+const url = "https://vvri.pythonanywhere.com/api/courses"
 
-fetch( 'https://vvri.pythonanywhere.com/api/courses')
-        .then(response => response.json())
-        .then(data => {
-            if (data)
-                data.forEach(element => {
-                    console.log(element)
-            })
-        })
-        .catch(error => console.log("Hiba történt: " + error))
+fetch(url, {
+    method: "GET"
+})
+    .then(response => response.json())
+    .then(json => {
+    let li = `<tr><th>id</th><th>Név</th></tr>`;
+    json.forEach(course => {
+        li += `<tr>
+        <td>${course.id}</td>
+        <td>${course.name}</td>
+
+        </tr>`;
+    });
+    document.getElementById("li").innerHTML = li;
+});
+    
+
+
