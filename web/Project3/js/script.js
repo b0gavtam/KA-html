@@ -1,13 +1,17 @@
 const url = "https://vvri.pythonanywhere.com/api/courses"
+const sturl = "https://vvri.pythonanywhere.com/api/students"
 let id;
 let coursename;
+let course2name;
+let courseid;
+let studentname;
 
 fetch(url, {
     method: "GET"
 })
     .then(response => response.json())
     .then(json => {
-    let li = `<tr><th>id</th><th>Név</th></tr>`;
+    let li = `<tr><th>Id</th><th>Név</th></tr>`;
     json.forEach(course => {
         li += `<tr>
         <td>${course.id}</td>
@@ -25,13 +29,13 @@ function Search() {
         .then(data => {
             if (data) {
                 console.log(data);
-                document.getElementById("kiir").innerHTML = data;
             } else {
                 console.log("Course not found");
             }
     })
 .catch(error => console.log("Hiba történt: " + error))
 }
+//új kurzus hozzáadása
 function newCourse() {
     coursename = document.getElementById("coursename").value;
     fetch(url, {
@@ -61,7 +65,7 @@ function newCourse() {
     })
         .then(response => response.json())
         .then(json => {
-        let li = `<tr><th>id</th><th>Név</th></tr>`;
+        let li = `<tr><th>Id</th><th>Név</th></tr>`;
         json.forEach(course => {
             li += `<tr>
             <td>${course.id}</td>
@@ -72,7 +76,64 @@ function newCourse() {
         document.getElementById("li").innerHTML = li;
     });
 }
+//diáklista megjelenítése
+fetch(sturl, {
+    method: "GET"
+})
+.then(response => response.json())
+.then(json => {
+    let li = `<tr><th>Id</th><th>Név</th></tr>`;
+    json.forEach(student => {
+        li += `<tr>
+        <td>${student.id}</td>
+        <td>${student.name}</td>
+        
+        </tr>`;
+    });
+    document.getElementById("diak").innerHTML = li;
+});
 
+//diák hozzáadása kurzushoz
+function studentInCourse() {
+    studentname = document.getElementById("studentname").value;
+    courseid = document.getElementById("course2id").value;
+    fetch(sturl, {
+         
+        // Metódus hozzáadása
+        method: "POST",
+         
+        // Küldendő test vagy tartalom hozzáadása
+        body: JSON.stringify({
+            name: studentname,
+            course_id: courseid
+            
+        }),
+         
+        // Fejlécek hozzáadása a kéréshez
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("New student in course created:", data); // Assuming data is the new course object
+    })
+    .catch(error => console.error("Error creating new course:", error));
+}
+//egy diák adatainak megjelenítése
+function studentToSearch() {
+    id= document.getElementById("studentid").value;
+    fetch("https://vvri.pythonanywhere.com/api/students/" + id)
+        .then(response => response.json())
+        .then(data => {
+            if (data) {
+                console.log(data);
+            } else {
+                console.log("Course not found");
+            }
+    })
+.catch(error => console.log("Hiba történt: " + error))
+}
 fetch(url, {
      
     // Metódus hozzáadása
@@ -121,7 +182,7 @@ fetch(url, {
 // Az eredmények megjelenítése a konzolon
 .then(json => console.log(json));
 
-fetch(url, {
+fetch(sturl, {
      
     // Metódus  hozzáadása
     method: "DELETE",

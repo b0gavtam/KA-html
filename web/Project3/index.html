@@ -16,12 +16,27 @@
 <label for="kurzus">kurzusválasztó:</label>
 <input type="number" name="kurzus" id="courseid">
 <input type="button" value="send"  onclick="Search()">
-<div id="kiir"></div>
-
+<br>
 <h2>új kurzus hozzáadása</h2>
 <label for="ujkurzus">új kurzus hozzáadása</label>
 <input type="text" name="ujkurzus" id="coursename">
 <input type="button" value="send" onclick="newCourse()">
-
+<br>
+<h2>diákok listája:</h2>
+<table id="diak"></table>
+<br>
+<h2>diák hozzáadása kurzushoz</h2>
+<label for="ujdiak">diák neve:</label>
+<input type="text" name="ujdiak" id="studentname">
+<br>
+<label for="kurzusid">kurzus id-je:</label>
+<input type="number" name="kurzusid" id="course2id">
+<br>
+<input type="button" value="send" onclick="studentInCourse()">
+<br>
+<h2>Diák adatainak megjelenítése:</h2>
+<label for="diakvalaszto">Diákválasztó:</label>
+<input type="number" name="diakvalaszto" id="studentid">
+<input type="button" value="send"  onclick="studentToSearch()">
 </body>
 </html>
