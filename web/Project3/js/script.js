@@ -1,6 +1,6 @@
 const url = "https://vvri.pythonanywhere.com/api/courses"
-const id = document.getElementById("courseid");
-const coursename = document.getElementById("coursename").value;
+let id;
+let coursename;
 
 fetch(url, {
     method: "GET"
@@ -18,24 +18,22 @@ fetch(url, {
     document.getElementById("li").innerHTML = li;
 });
 
-function Search(id) {
-    fetch("https://vvri.pythonanywhere.com/api/courses/" + id ,{
-        method:"GET"
+function Search() {
+    id= document.getElementById("courseid").value;
+    fetch("https://vvri.pythonanywhere.com/api/courses/" + id)
+        .then(response => response.json())
+        .then(data => {
+            if (data) {
+                console.log(data);
+                document.getElementById("kiir").innerHTML = data;
+            } else {
+                console.log("Course not found");
+            }
     })
-    .then(response => response.json())
-    .then(data => {
-    let li = `<tr><th>id</th><th>Név</th></tr>`;
-    data(course => {
-        li += `<tr>
-        <td>${course.id}</td>
-        <td>${course.name}</td>
-
-        </tr>`;
-    });
-    document.getElementById("kiir").innerHTML = li;
-    })
+.catch(error => console.log("Hiba történt: " + error))
 }
-function newCourse(coursename) {
+function newCourse() {
+    coursename = document.getElementById("coursename").value;
     fetch(url, {
          
         // Metódus hozzáadása
@@ -52,9 +50,27 @@ function newCourse(coursename) {
             "Content-type": "application/json; charset=UTF-8"
         }
     })
-     
-    // Konvertálás JSON-ba
     .then(response => response.json())
+    .then(data => {
+        console.log("New course created:", data); // Assuming data is the new course object
+    })
+    .catch(error => console.error("Error creating new course:", error));
+
+    fetch(url, {
+        method: "GET"
+    })
+        .then(response => response.json())
+        .then(json => {
+        let li = `<tr><th>id</th><th>Név</th></tr>`;
+        json.forEach(course => {
+            li += `<tr>
+            <td>${course.id}</td>
+            <td>${course.name}</td>
+    
+            </tr>`;
+        });
+        document.getElementById("li").innerHTML = li;
+    });
 }
 
 fetch(url, {
