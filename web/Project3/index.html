@@ -6,7 +6,7 @@
     <title>Document</title>
     <script defer src="js/script.js"></script>
 </head>
-<body>
+<body onload="Get()">
     <h1>Kurzusok listája</h1>
 <table id="li">
 
@@ -35,8 +35,9 @@
 <input type="button" value="send" onclick="studentInCourse()">
 <br>
 <h2>Diák adatainak megjelenítése:</h2>
-<label for="diakvalaszto">Diákválasztó:</label>
+<label for="diakvalaszto">Diák ID:</label>
 <input type="number" name="diakvalaszto" id="studentid">
 <input type="button" value="send"  onclick="studentToSearch()">
+<div id="diakadat"></div>
 </body>
 </html>

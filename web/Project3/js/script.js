@@ -6,21 +6,23 @@ let course2name;
 let courseid;
 let studentname;
 
-fetch(url, {
-    method: "GET"
-})
-    .then(response => response.json())
-    .then(json => {
-    let li = `<tr><th>Id</th><th>Név</th></tr>`;
-    json.forEach(course => {
-        li += `<tr>
-        <td>${course.id}</td>
-        <td>${course.name}</td>
-
-        </tr>`;
+function Get() {
+    fetch(url, {
+        method: "GET"
+    })
+        .then(response => response.json())
+        .then(json => {
+        let li = `<tr><th>Id</th><th>Név</th></tr>`;
+        json.forEach(course => {
+            li += `<tr>
+            <td>${course.id}</td>
+            <td>${course.name}</td>
+    
+            </tr>`;
+        });
+        document.getElementById("li").innerHTML = li;
     });
-    document.getElementById("li").innerHTML = li;
-});
+}
 
 function Search() {
     id= document.getElementById("courseid").value;
@@ -59,22 +61,8 @@ function newCourse() {
         console.log("New course created:", data); // Assuming data is the new course object
     })
     .catch(error => console.error("Error creating new course:", error));
+    Get();
 
-    fetch(url, {
-        method: "GET"
-    })
-        .then(response => response.json())
-        .then(json => {
-        let li = `<tr><th>Id</th><th>Név</th></tr>`;
-        json.forEach(course => {
-            li += `<tr>
-            <td>${course.id}</td>
-            <td>${course.name}</td>
-    
-            </tr>`;
-        });
-        document.getElementById("li").innerHTML = li;
-    });
 }
 //diáklista megjelenítése
 fetch(sturl, {
