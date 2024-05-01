@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script defer src="js/script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body onload="Get()">
+<body onload="Get(); getStudent()">
     <h1>Kurzusok listája</h1>
 <table id="li">
 
@@ -16,11 +17,13 @@
 <label for="kurzus">kurzusválasztó:</label>
 <input type="number" name="kurzus" id="courseid">
 <input type="button" value="send"  onclick="Search()">
+<div id="k"></div>
 <br>
 <h2>új kurzus hozzáadása</h2>
 <label for="ujkurzus">új kurzus hozzáadása</label>
 <input type="text" name="ujkurzus" id="coursename">
 <input type="button" value="send" onclick="newCourse()">
+<div id="nk"></div>
 <br>
 <h2>diákok listája:</h2>
 <table id="diak"></table>
@@ -33,11 +36,31 @@
 <input type="number" name="kurzusid" id="course2id">
 <br>
 <input type="button" value="send" onclick="studentInCourse()">
+<div id="ndk"></div>
 <br>
 <h2>Diák adatainak megjelenítése:</h2>
 <label for="diakvalaszto">Diák ID:</label>
 <input type="number" name="diakvalaszto" id="studentid">
 <input type="button" value="send"  onclick="studentToSearch()">
 <div id="diakadat"></div>
+<br>
+<h2>Diák adatainak módosítása:</h2>
+<label for="diakmod">diák neve:</label>
+<input type="text" name="diakmod" id="studentname">
+<br>
+<label for="kurzusid">kurzus id-je:</label>
+<input type="number" name="kurzusid" id="changeid">
+<br>
+<label for="diakid">Átírandó diák ID-je:</label>
+<input type="number" name="diakid" id="schange">
+<br>
+<input type="button" value="send" onclick="studentChange()">
+<div id="diakvaltoztatas"></div>
+<br>
+<h2>Diák törlése:</h2>
+<label for="diakvalaszto2">Diák ID:</label>
+<input type="number" name="diakvalaszto2" id="student2id">
+<input type="button" value="send"  onclick="studentToDelete()">
+<div id="diaktorles"></div>
 </body>
 </html>
