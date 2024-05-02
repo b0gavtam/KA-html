@@ -64,7 +64,7 @@ function newCourse() {
 }
 //diáklista megjelenítése
 function getStudent() {
-    fetch(sturl, {
+    fetch(url, {
         method: "GET",
         headers:{
             "Content-type": "application/json; charset=UTF-8",
@@ -74,12 +74,16 @@ function getStudent() {
     .then(response => response.json())
     .then(json => {
         let li = `<tr><th>Id</th><th>Név</th></tr>`;
-        json.forEach(student => {
-            li += `<tr>
-            <td>${student.id}</td>
-            <td>${student.name}</td>
-            
-            </tr>`;
+        json.forEach(course => {
+            for (let i = 0; i < course.students.length; i++) {
+                //const element = array[i];
+                li += `<tr>
+                <td>${course.students[i].id}</td>
+                <td>${course.students[i].name}</td>
+                
+                </tr>`;
+                
+            }
         });
         document.getElementById("diak").innerHTML = li;
     });
@@ -150,28 +154,28 @@ function studentToDelete() {
 function studentChange() {
     studentname = document.getElementById("studentname").value;
     courseid = document.getElementById("changeid").value;
-    id = document.getElementById("schange").value;
-    fetch("https://vvri.pythonanywhere.com/api/students/" + id, {
+    studid = document.getElementById("schange").value;
+    fetch("https://vvri.pythonanywhere.com/api/students/" + studid, {
         method: "PUT",
         body: JSON.stringify({
-            name: coursename,
+            name: studentname,
             course_id: courseid,
-            id: id
         }),
         headers: {
             "Content-type": "application/json; charset=UTF-8",
             "Access-Control-Allow-Origin": "*"
         }
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data) {
-            console.log(data);
-            document.getElementById("diakvaltoztatas").innerHTML = data.name;
-        } else {
-            console.log("Student not found");
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
+        return response.json();
     })
-    .catch(error => console.error("Error creating new course:", error))
+    .then(data => {
+        console.log("Student updated:", data);
+        document.getElementById("diakvaltoztatas").innerHTML = data.name;
+    })
+    .catch(error => console.error("Error updating student:", error));
     getStudent();
 }
