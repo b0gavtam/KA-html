@@ -17,11 +17,15 @@ function Get() {
         .then(json => {
         let li = `<tr><th>Id</th><th>Név</th></tr>`;
         json.forEach(course => {
+            
             li += `<tr>
             <td>${course.id}</td>
-            <td>${course.name}</td>
-    
-            </tr>`;
+            <td>${course.name}</td>`;
+            for (let i = 0; i < course.students.length; i++) {
+                li+=`<td>${course.students[i].id},${course.students[i].name}</td>`
+                
+            }
+            li+=`</tr>`
         });
         document.getElementById("li").innerHTML = li;
     });
@@ -76,7 +80,6 @@ function getStudent() {
         let li = `<tr><th>Id</th><th>Név</th></tr>`;
         json.forEach(course => {
             for (let i = 0; i < course.students.length; i++) {
-                //const element = array[i];
                 li += `<tr>
                 <td>${course.students[i].id}</td>
                 <td>${course.students[i].name}</td>
@@ -90,7 +93,7 @@ function getStudent() {
 }
 
 //diák hozzáadása kurzushoz
-function studentInCourse() {
+function studentInCourse(studentname, courseid) {
     studentname = document.getElementById("studentname").value;
     courseid = document.getElementById("course2id").value;
     fetch(sturl, {
@@ -113,7 +116,7 @@ function studentInCourse() {
     .then(data => {
         if (data) {
             console.log("New student in course created:", data);
-            document.getElementById("ndk").innerHTML = "Diák hozzáadva  a kurzushoz." + "Név:" + data.name + "ID:" + data.id;
+            document.getElementById("ndk").innerHTML = "Diák hozzáadva  a kurzushoz:" + data.id + `\t` + data.name;
         }
         else{
             console.log("already in")
@@ -123,7 +126,7 @@ function studentInCourse() {
     getStudent()
 }
 //egy diák adatainak megjelenítése
-function studentToSearch() {
+function studentToSearch(id) {
     id= document.getElementById("studentid").value;
     fetch("https://vvri.pythonanywhere.com/api/students/" + id)
         .then(response => response.json())
@@ -137,29 +140,16 @@ function studentToSearch() {
     })
 .catch(error => console.log("Hiba történt: " + error))
 }
-//diák törlése
-function studentToDelete() {
-    id= document.getElementById("student2id").value;
-    fetch("https://vvri.pythonanywhere.com/api/students/" + id, {
-        method: "DELETE",
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        }
-        
-    })
-    document.getElementById("diaktorles").innerHTML = "diák törölve."
-    getStudent();
-}
 //diák módosítása
-function studentChange() {
+function studentChange(id) {
+    id = document.getElementById("schange").value;
     studentname = document.getElementById("studentname").value;
     courseid = document.getElementById("changeid").value;
-    studid = document.getElementById("schange").value;
-    fetch("https://vvri.pythonanywhere.com/api/students/" + studid, {
+    fetch("https://vvri.pythonanywhere.com/api/students/" + id, {
         method: "PUT",
         body: JSON.stringify({
             name: studentname,
-            course_id: courseid,
+            course_id: courseid
         }),
         headers: {
             "Content-type": "application/json; charset=UTF-8",
@@ -177,5 +167,73 @@ function studentChange() {
         document.getElementById("diakvaltoztatas").innerHTML = data.name;
     })
     .catch(error => console.error("Error updating student:", error));
+       fetch("https://vvri.pythonanywhere.com/api/students/" + id, {
+        method: "DELETE",
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+        
+    })
+    fetch(sturl, {
+        
+        // Metódus hozzáadása
+        method: "POST",
+        
+        // Küldendő test vagy tartalom hozzáadása
+        body: JSON.stringify({
+            name: studentname,
+            course_id: courseid
+            
+        }),
+        
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+    lastid = students.length;
+    fetch("https://vvri.pythonanywhere.com/api/students" + lastid, {
+        method: "PUT",
+        body: JSON.stringify({
+            name: studentname,
+            id: id
+        }),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "Access-Control-Allow-Origin": "*"
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        data.forEach(course => {
+            for (let i = 0; i < course.students.length; i++) {
+                li += `<tr>
+                <td>${course.students[i].id}</td>
+                <td>${course.students[i].name}</td>
+                
+                </tr>`;
+            }
+        })
+        console.log("Student updated:", data);
+        document.getElementById("diakvaltoztatas").innerHTML = data.name;
+    })
+    .catch(error => console.error("Error updating student:", error));
+    getStudent();
+}
+//diák törlése
+function studentToDelete(id) {
+    id= document.getElementById("student2id").value;
+    fetch("https://vvri.pythonanywhere.com/api/students/" + id, {
+        method: "DELETE",
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+        
+    })
+    document.getElementById("diaktorles").innerHTML = "diák törölve."
     getStudent();
 }
