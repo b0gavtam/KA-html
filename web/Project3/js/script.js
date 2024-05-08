@@ -4,7 +4,7 @@ let studentname;
 let id;
 let coursename;
 let courseid;
-//kurzusok betöltése
+//kurzusok és diákok betöltése
 function Get() {
     fetch(url, {
         method: "GET",
@@ -66,42 +66,13 @@ function newCourse() {
     Get();
 
 }
-//diáklista megjelenítése
-function getStudent() {
-    fetch(url, {
-        method: "GET",
-        headers:{
-            "Content-type": "application/json; charset=UTF-8",
-            "Access-Control-Allow-Origin": "*"
-        }
-    })
-    .then(response => response.json())
-    .then(json => {
-        let li = `<tr><th>Id</th><th>Név</th></tr>`;
-        json.forEach(course => {
-            for (let i = 0; i < course.students.length; i++) {
-                li += `<tr>
-                <td>${course.students[i].id}</td>
-                <td>${course.students[i].name}</td>
-                
-                </tr>`;
-                
-            }
-        });
-        document.getElementById("diak").innerHTML = li;
-    });
-}
 
 //diák hozzáadása kurzushoz
 function studentInCourse(studentname, courseid) {
     studentname = document.getElementById("studentname").value;
     courseid = document.getElementById("course2id").value;
     fetch(sturl, {
-         
-        // Metódus hozzáadása
         method: "POST",
-         
-        // Küldendő test vagy tartalom hozzáadása
         body: JSON.stringify({
             name: studentname,
             course_id: courseid
@@ -123,7 +94,7 @@ function studentInCourse(studentname, courseid) {
         }
     })
     .catch(error => console.error("Error creating new course:", error));
-    getStudent()
+    Get();
 }
 //egy diák adatainak megjelenítése
 function studentToSearch(id) {
@@ -139,12 +110,16 @@ function studentToSearch(id) {
             }
     })
 .catch(error => console.log("Hiba történt: " + error))
+Get();
 }
 //diák módosítása
-function studentChange(id) {
+function studentChange(id, studentname, courseid) {
     id = document.getElementById("schange").value;
-    studentname = document.getElementById("studentname").value;
+    studentname = document.getElementById("studentnamemod").value;
     courseid = document.getElementById("changeid").value;
+        
+ 
+
     fetch("https://vvri.pythonanywhere.com/api/students/" + id, {
         method: "PUT",
         body: JSON.stringify({
@@ -152,8 +127,7 @@ function studentChange(id) {
             course_id: courseid
         }),
         headers: {
-            "Content-type": "application/json; charset=UTF-8",
-            "Access-Control-Allow-Origin": "*"
+            "Content-type": "application/json; charset=UTF-8"
         }
     })
     .then(response => {
@@ -164,65 +138,10 @@ function studentChange(id) {
     })
     .then(data => {
         console.log("Student updated:", data);
-        document.getElementById("diakvaltoztatas").innerHTML = data.name;
+        document.getElementById("diakvaltoztatas").innerHTML = "Diák megváltoztatva." + "<br>" + "Név: " + data.name + "<br>" + "Kurzus: " + data.id
     })
     .catch(error => console.error("Error updating student:", error));
-       fetch("https://vvri.pythonanywhere.com/api/students/" + id, {
-        method: "DELETE",
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        }
-        
-    })
-    fetch(sturl, {
-        
-        // Metódus hozzáadása
-        method: "POST",
-        
-        // Küldendő test vagy tartalom hozzáadása
-        body: JSON.stringify({
-            name: studentname,
-            course_id: courseid
-            
-        }),
-        
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        }
-    })
-    lastid = students.length;
-    fetch("https://vvri.pythonanywhere.com/api/students" + lastid, {
-        method: "PUT",
-        body: JSON.stringify({
-            name: studentname,
-            id: id
-        }),
-        headers: {
-            "Content-type": "application/json; charset=UTF-8",
-            "Access-Control-Allow-Origin": "*"
-        }
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        data.forEach(course => {
-            for (let i = 0; i < course.students.length; i++) {
-                li += `<tr>
-                <td>${course.students[i].id}</td>
-                <td>${course.students[i].name}</td>
-                
-                </tr>`;
-            }
-        })
-        console.log("Student updated:", data);
-        document.getElementById("diakvaltoztatas").innerHTML = data.name;
-    })
-    .catch(error => console.error("Error updating student:", error));
-    getStudent();
+    Get();
 }
 //diák törlése
 function studentToDelete(id) {
@@ -235,5 +154,5 @@ function studentToDelete(id) {
         
     })
     document.getElementById("diaktorles").innerHTML = "diák törölve."
-    getStudent();
+    Get();
 }

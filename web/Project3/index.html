@@ -7,7 +7,7 @@
     <script defer src="js/script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body onload="Get(); getStudent()">
+<body onload="Get()">
     <h1>Kurzusok és diákjaik listája</h1>
 <table id="li">
 
@@ -25,9 +25,6 @@
 <input type="button" value="send" onclick="newCourse()">
 <div id="nk"></div>
 <br>
-<h2>diákok listája:</h2>
-<table id="diak"></table>
-<br>
 <h2>diák hozzáadása kurzushoz</h2>
 <label for="ujdiak">diák neve:</label>
 <input type="text" name="ujdiak" id="studentname">
@@ -35,18 +32,18 @@
 <label for="kurzusid">kurzus id-je:</label>
 <input type="number" name="kurzusid" id="course2id">
 <br>
-<input type="button" value="send" onclick="studentInCourse()">
+<input type="button" value="send" onclick="studentInCourse(studentname, courseid)">
 <div id="ndk"></div>
 <br>
 <h2>Diák adatainak megjelenítése:</h2>
 <label for="diakvalaszto">Diák ID:</label>
 <input type="number" name="diakvalaszto" id="studentid">
-<input type="button" value="send"  onclick="studentToSearch()">
+<input type="button" value="send"  onclick="studentToSearch(id)">
 <div id="diakadat"></div>
 <br>
 <h2>Diák adatainak módosítása:</h2>
 <label for="diakmod">diák neve:</label>
-<input type="text" name="diakmod" id="studentname">
+<input type="text" name="diakmod" id="studentnamemod">
 <br>
 <label for="kurzusid">kurzus id-je:</label>
 <input type="number" name="kurzusid" id="changeid">
@@ -54,13 +51,13 @@
 <label for="diakid">Átírandó diák ID-je:</label>
 <input type="number" name="diakid" id="schange">
 <br>
-<input type="button" value="send" onclick="studentChange()">
+<input type="button" value="send" onclick="studentChange(id, studentname, courseid)">
 <div id="diakvaltoztatas"></div>
 <br>
 <h2>Diák törlése:</h2>
 <label for="diakvalaszto2">Diák ID:</label>
 <input type="number" name="diakvalaszto2" id="student2id">
-<input type="button" value="send"  onclick="studentToDelete()">
+<input type="button" value="send"  onclick="studentToDelete(id)">
 <div id="diaktorles"></div>
 </body>
 </html>
