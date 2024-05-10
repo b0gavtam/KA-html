@@ -15,7 +15,7 @@ function Get() {
     })
         .then(response => response.json())
         .then(json => {
-        let li = `<tr><th>Id</th><th>Név</th></tr>`;
+        let li = `<tr><th>Id</th><th>Név</th><th colspan = "6">Tanulók</th></tr>`;
         json.forEach(course => {
             
             li += `<tr>
@@ -60,7 +60,7 @@ function newCourse() {
     })
     .then(data => {
         console.log("New course created:", data);
-        document.getElementById("nk").innerHTML = "új kurzus létrehozva:", data.name;
+        document.getElementById("nk").innerHTML = "új kurzus létrehozva."
     })
     .catch(error => console.error("Error creating new course:", error));
     Get();

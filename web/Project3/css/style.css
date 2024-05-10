@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: rgb(177,58,180);
+    background: linear-gradient(90deg, rgba(177,58,180,1) 8%, rgba(44,192,185,0.9780112728685224) 41%, rgba(253,29,29,1) 44%, rgba(253,29,29,1) 56%, rgba(111,255,94,1) 57%, rgb(39, 110, 31) 71%, rgba(210,50,50,1) 73%, rgba(33,41,241,1) 85%, rgba(33,41,241,1) 91%, rgba(176,69,252,1) 92%);}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    color: #333;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="button"] {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="button"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #45a049;
+}
+
+#k, #nk, #ndk, #diakadat, #diakvaltoztatas, #diaktorles {
+    margin-top: 10px;
+    padding: 8px;
+    background-color: #dff0d8;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+}
