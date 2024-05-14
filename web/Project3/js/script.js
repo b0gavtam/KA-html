@@ -29,10 +29,10 @@ function Get() {
                 span = course.students.length;
             }   
             li += `<tr>
-            <td>${course.id}</td>
-            <td>${course.name}</td>`;
+            <td id = "kontent">${course.id}</td>
+            <td id = "kontent">${course.name}</td>`;
             for (let i = 0; i < course.students.length; i++) {
-                li+=`<td>${course.students[i].id},${course.students[i].name}</td>`
+                li+=`<td id = "kontent">${course.students[i].id},${course.students[i].name}</td>`
             }
             li+=`</tr>`
             
