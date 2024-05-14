@@ -3,36 +3,34 @@ body {
     margin: 0;
     padding: 20px;
     background: rgb(177,58,180);
-    background: linear-gradient(90deg, rgba(177,58,180,1) 8%, rgba(44,192,185,0.9780112728685224) 41%, rgba(253,29,29,1) 44%, rgba(253,29,29,1) 56%, rgba(111,255,94,1) 57%, rgb(39, 110, 31) 71%, rgba(210,50,50,1) 73%, rgba(210,50,50,1) 81%, rgba(33,41,241,1) 82%, rgba(33,41,241,1) 91%, rgba(176,69,252,1) 92%);}
+    background: linear-gradient(180deg, rgba(177,58,180,1) 8%, rgb(173, 35, 35) 41%, rgba(44,192,185,0.9780112728685224) 56%, rgb(39, 110, 31) 71%, rgba(210,50,50,1) 73%, rgba(210,50,50,1) 81%, rgba(33,41,241,1) 82%, rgba(33,41,241,1) 91%, rgba(176,69,252,1) 92%);}
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-}
 
 h1, h2 {
-    color: #3f3e3e;
+    color: rgb(240, 236, 0);
     margin-top: 20px;
 }
 
 table {
-    width: 100%;
+    width: 98vw;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
 
 table, th, td {
-    border: 3px solid #ddd;
-    padding: 8px;
+    border: 3px double #00ff6a;
+    padding: 2px;
+    color: white;
+
 }
 
-th {
-    background-color: #f2f2f2;
+th, #tanhead {
+    background-color: #11b174;
 }
 
 input[type="text"],
 input[type="number"],
-input[type="button"] {
+button{
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -44,13 +42,13 @@ label{
  color: azure;
 }
 
-input[type="button"] {
+button{
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
 }
 
-input[type="button"]:hover {
+button:hover {
     background-color: #45a049;
 }
 
@@ -60,5 +58,7 @@ input[type="button"]:hover {
     background-color: #dff0d8;
     border: 1px solid #c3e6cb;
     border-radius: 4px;
+    width: fit-content;
+    visibility: hidden;
     
 }

@@ -14,50 +14,50 @@
 </table>
 
 <h2>Egy kurzus keresése:</h2>
-<label for="kurzus">kurzusválasztó:</label>
+<label for="kurzus">Kurzus száma:</label>
 <input type="number" name="kurzus" id="courseid">
-<input type="button" value="send"  onclick="Search()">
+<button id="kurzuskeres">Send</button>
 <div id="k"></div>
 <br>
-<h2>Új kurzus hozzáadása</h2>
-<label for="ujkurzus">új kurzus hozzáadása</label>
-<input type="text" name="ujkurzus" id="coursename">
-<input type="button" value="send" onclick="newCourse()">
+<h2>Új kurzus hozzáadása:</h2>
+<label for="ujkurzusnev">Új kurzus neve:</label>
+<input type="text" name="ujkurzusnev" id="coursename">
+<button id="ujkurzus">Send</button>
 <div id="nk"></div>
 <br>
-<h2>Diák hozzáadása kurzushoz</h2>
-<label for="ujdiak">diák neve:</label>
-<input type="text" name="ujdiak" id="studentname">
+<h2>Diák hozzáadása kurzushoz:</h2>
+<label for="ujdiaknev">Diák neve:</label>
+<input type="text" name="ujdiaknev" id="studentname">
 <br>
-<label for="kurzusid">kurzus id-je:</label>
+<label for="kurzusid">Kurzus id-je:</label>
 <input type="number" name="kurzusid" id="course2id">
 <br>
-<input type="button" value="send" onclick="studentInCourse(studentname, courseid)">
+<button id="ujdiak">Send</button>
 <div id="ndk"></div>
 <br>
 <h2>Diák adatainak megjelenítése:</h2>
 <label for="diakvalaszto">Diák ID:</label>
 <input type="number" name="diakvalaszto" id="studentid">
-<input type="button" value="send"  onclick="studentToSearch(id)">
+<button id="diakkeres">Send</button>
 <div id="diakadat"></div>
 <br>
 <h2>Diák adatainak módosítása:</h2>
-<label for="diakmod">diák neve:</label>
+<label for="diakmod">Diák neve:</label>
 <input type="text" name="diakmod" id="studentnamemod">
 <br>
-<label for="kurzusid">kurzus id-je:</label>
+<label for="kurzusid">Kurzus id-je:</label>
 <input type="number" name="kurzusid" id="changeid">
 <br>
 <label for="diakid">Átírandó diák ID-je:</label>
 <input type="number" name="diakid" id="schange">
 <br>
-<input type="button" value="send" onclick="studentChange(id, studentname, courseid)">
+<button id="diakvalt">Send</button>
 <div id="diakvaltoztatas"></div>
 <br>
 <h2>Diák törlése:</h2>
 <label for="diakvalaszto2">Diák ID:</label>
 <input type="number" name="diakvalaszto2" id="student2id">
-<input type="button" value="send"  onclick="studentToDelete(id)">
+<button id="diaktorol">Send</button>
 <div id="diaktorles"></div>
 </body>
 </html>
