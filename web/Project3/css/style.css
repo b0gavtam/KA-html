@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 20px;
     background: rgb(177,58,180);
-    background: linear-gradient(180deg, rgba(177,58,180,1) 8%, rgba(173, 35, 35, 1) 31%, rgba(39, 110, 31,1) 56%, rgba(173, 35, 35, 1) 81%, rgba(177,58,180,1) 92%);}
+    background: linear-gradient(180deg, rgba(177,58,180,1) 8%, rgb(179, 79, 79) 31%, rgba(39, 110, 31,1) 56%, rgba(179, 79, 79, 1) 81%, rgba(177,58,180,1) 92%);}
 
 
 h1, h2 {
@@ -11,13 +11,13 @@ h1, h2 {
     margin-top: 20px;
 }
 
-table {
+#li{
     width: 98vw;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
 
-table, th, td {
+#li, th, td {
     border: 3px double #00ff6a;
     padding: 2px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
