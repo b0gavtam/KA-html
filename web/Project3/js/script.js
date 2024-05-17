@@ -15,7 +15,7 @@ let tanhead;
 //--------------------------------------------------------------------------------------------------------------------------------------------------
 async function Get() {
     try {
-        await fetch(url, {
+     const response = await fetch(url, {
              method: "GET",
              headers: {
                  "Content-type": "application/json; charset=UTF-8",
@@ -23,9 +23,6 @@ async function Get() {
              }
          })
          const data = await response.json()
-         if (data) {
-             
-         }
              let li = `<tr><th>ID</th><th>Kurzusnév</th><th id = "tanhead">Tanulók</th></tr>`;
              data.forEach(course => {
                  if (course.students.length > span) {
@@ -37,9 +34,8 @@ async function Get() {
                  for (let i = 0; i < course.students.length; i++) {
                      li+=`<td id = "kontent">${course.students[i].id},${course.students[i].name}</td>`
                  }
-                 li+=`</tr>`
-                 
-             });
+                 li+=`</tr>`    
+                });
              document.getElementById("li").innerHTML = li;
              tanhead = document.getElementById("tanhead");
              tanhead.setAttribute("colspan", span);
@@ -49,9 +45,9 @@ async function Get() {
 }
 //--------------------------------------------------------------------------------------------------------------------------------------------------
 kurzuskeresgomb.addEventListener("click", async function Search() {
-    id = document.getElementById("courseid").value;
     try{
-        await fetch("https://vvri.pythonanywhere.com/api/courses/" + id)
+        id = document.getElementById("courseid").value;
+      const response = await fetch("https://vvri.pythonanywhere.com/api/courses/" + id)
             const data = await response.json();
                 if (data) {
                     document.getElementById("k").innerHTML = "A kurzus neve: " + data.name;
@@ -69,7 +65,7 @@ kurzuskeresgomb.addEventListener("click", function(){
 ujkurzusgomb.addEventListener("click", async function newCourse() {
     coursename = document.getElementById("coursename").value;
     try {
-        fetch(url, {
+       const response = fetch(url, {
             method: "POST",
             body: JSON.stringify({
                 name: coursename
@@ -79,11 +75,9 @@ ujkurzusgomb.addEventListener("click", async function newCourse() {
                 "Content-type": "application/json; charset=UTF-8"
             }
         })
-        const data = response.json()
-        data => {
-            console.log("New course created:", data);
-            document.getElementById("nk").innerHTML = "Új kurzus létrehozva."
-        }
+        const data = await response.json()
+            document.getElementById("nk").innerHTML = "Új kurzus létrehozva." + data;
+        
         Get();
         
     } catch (error) {
@@ -99,7 +93,7 @@ ujdiakgomb.addEventListener("click", async function studentInCourse(studentname,
     studentname = document.getElementById("studentname").value;
     courseid = document.getElementById("course2id").value;
     try {
-        fetch(sturl, {
+       const response = await fetch(sturl, {
             method: "POST",
             body: JSON.stringify({
                 name: studentname,
@@ -129,7 +123,7 @@ ujdiakgomb.addEventListener("click", function(){
 diakkeresgomb.addEventListener("click", async function studentToSearch(id) {
     id= document.getElementById("studentid").value;
     try {
-        await fetch("https://vvri.pythonanywhere.com/api/students/" + id)
+       const response = await fetch("https://vvri.pythonanywhere.com/api/students/" + id)
             const data = await response.json()
                 if (data) {
                     console.log(data);
