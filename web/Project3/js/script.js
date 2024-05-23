@@ -9,7 +9,7 @@ let ujkurzusgomb = document.getElementById("ujkurzus");
 let ujdiakgomb = document.getElementById("ujdiak");
 let diakkeresgomb = document.getElementById("diakkeres");
 let diakmodgomb = document.getElementById("diakvalt");
-let diaktorlesgomb = document.getElementById("diaktorles");
+let diaktorlesgomb = document.getElementById("diaktorol");
 let span = 1;
 let tanhead;
 //--------------------------------------------------------------------------------------------------------------------------------------------------
@@ -58,6 +58,7 @@ kurzuskeresgomb.addEventListener("click", async function Search() {
     }
     Get();
 })
+setTimeout(200);
 kurzuskeresgomb.addEventListener("click", function(){
     document.getElementById("k").style.visibility = "visible";
 })
@@ -85,6 +86,7 @@ ujkurzusgomb.addEventListener("click", async function newCourse() {
     }
 
 })
+setTimeout(200);
 ujkurzusgomb.addEventListener("click", function(){
     document.getElementById("nk").style.visibility = "visible";
 })
@@ -116,6 +118,7 @@ ujdiakgomb.addEventListener("click", async function studentInCourse(studentname,
         console.log("Hiba történt: " + error)
     }
 })
+setTimeout(200);
 ujdiakgomb.addEventListener("click", function(){
     document.getElementById("ndk").style.visibility = "visible";
 })
@@ -136,6 +139,7 @@ diakkeresgomb.addEventListener("click", async function studentToSearch(id) {
         console.log("Hiba történt: " + error);
     }
 })
+setTimeout(200);
 diakkeresgomb.addEventListener("click", function(){
     document.getElementById("diakadat").style.visibility = "visible";
 })
@@ -145,7 +149,7 @@ diakmodgomb.addEventListener("click", async function studentChange(id, studentna
     studentname = document.getElementById("studentnamemod").value;
     courseid = document.getElementById("changeid").value;
     try {
-        await fetch("https://vvri.pythonanywhere.com/api/students/" + id, {
+       const response = await fetch("https://vvri.pythonanywhere.com/api/students/" + id, {
            method: "PUT",
            body: JSON.stringify({
                name: studentname,
@@ -166,22 +170,31 @@ diakmodgomb.addEventListener("click", async function studentChange(id, studentna
         console.log("Hiba történt: " + error);
     }
 })
+setTimeout(200);
 diakmodgomb.addEventListener("click", function(){
     document.getElementById("diakvaltoztatas").style.visibility = "visible";
 })
 //--------------------------------------------------------------------------------------------------------------------------------------------------
-diaktorlesgomb.addEventListener("click", function studentToDelete(id) {
-    id= document.getElementById("student2id").value;
-    fetch("https://vvri.pythonanywhere.com/api/students/" + id, {
-        method: "DELETE",
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        }
-        
-    })
-    document.getElementById("diaktorles").innerHTML = "Diák törölve."
-    Get();
+diaktorlesgomb.addEventListener("click", async function studentToDelete(id) {
+    try {
+        id= document.getElementById("student2id").value;
+        const response = await fetch("https://vvri.pythonanywhere.com/api/students/" + id, {
+            method: "DELETE",
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+            
+        })
+        const data = await response.json();
+           if (data) {
+               document.getElementById("diaktorles").innerHTML = "Diák törölve."
+            }
+        Get();  
+    } catch (error) {
+        console.log("Hiba történt: " + error);
+    }
 })
+setTimeout(200);
 diaktorlesgomb.addEventListener("click", function(){
     document.getElementById("diaktorles").style.visibility = "visible";
 })
