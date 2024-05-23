@@ -162,7 +162,7 @@ diakmodgomb.addEventListener("click", async function studentChange(id, studentna
        const data = await response.json();
        if (data) {
            console.log("Student updated:", data);
-           document.getElementById("diakvaltoztatas").innerHTML = "Diák megváltoztatva." + "<br>" + "Név: " + data.name + "<br>" + "Kurzus: " + data.id;
+           document.getElementById("diakvaltoztatas").innerHTML = "Diák megváltoztatva." + "<br>" + "Név: " + data.name + "<br>" + "ID: " + data.id;
        }
        Get();
    }    
