@@ -66,7 +66,7 @@ kurzuskeresgomb.addEventListener("click", function(){
 ujkurzusgomb.addEventListener("click", async function newCourse() {
     coursename = document.getElementById("coursename").value;
     try {
-       const response = fetch(url, {
+       const response = await fetch(url, {
             method: "POST",
             body: JSON.stringify({
                 name: coursename
