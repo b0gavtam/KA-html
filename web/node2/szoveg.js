@@ -1,6 +1,4 @@
 const fs = require('fs')
-const os = require('os');
-os.homedir();
 fs.writeFile('./web/node2/szoveg.txt', 
 `All this running around 
 I cant fight it much longer
