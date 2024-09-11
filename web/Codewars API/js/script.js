@@ -17,7 +17,7 @@ async function Get() {
          })
          const data = await response.json()
                 if (data) {
-                    document.getElementById("k").innerHTML = 
+                    document.getElementById("k").innerHTML 
                 }
              let li
              data.forEach(languages => {  
