@@ -3,10 +3,10 @@ let username;
 let overallKeresGomb = document.getElementById("overallkeres");
 let languageKeresGomb = document.getElementById("languagekeres");
 //--------------------------------------------------------------------------------------------------------------------------------------------------
-function notFound(res) {
-    res.status(404).send("Not found.");
-}
-//--------------------------------------------------------------------------------------------------------------------------------------------------
+$("#k").hide();
+$("#nk").hide();
+$("#languagekeres").hide();
+
 overallKeresGomb.addEventListener("click", async function overallSearch() {
     try{
         username = document.getElementById("userid").value;
@@ -31,12 +31,17 @@ overallKeresGomb.addEventListener("click", async function overallSearch() {
                 
     }
     catch(error){
-        console.log(error)
+        error = ("Error 404 - User not found")
+        document.getElementById("k").innerHTML = error;
     }
     setTimeout(200)
 });
-overallKeresGomb.addEventListener("click", function(){
+/*overallKeresGomb.addEventListener("click", function(){
     document.getElementById("k").style.visibility = "visible";
+    })*/
+$("#overallkeres").click(function (){ 
+    $("#k").fadeIn(1500)
+    $("#languagekeres").fadeIn(1000)
 })
 //--------------------------------------------------------------------------------------------------------------------------------------------------
 languageKeresGomb.addEventListener("click", async function languageSearch() {
@@ -51,28 +56,31 @@ languageKeresGomb.addEventListener("click", async function languageSearch() {
         })
 
             const data = await response.json();  
-            let li;
-            let obj = new Object(data.ranks.languages)
-            li += obj;
+            if (data) {
+                let li;
+                const languages = data.ranks.languages;
+                for (const language in languages) {
+                        li += `Nyelv: ${language} <br>`
+                        li += `Rank: ${languages[language].rank * -1} <br>`
+                        li += `Név: ${languages[language].name} <br>`
+                        li += `Szín: ${languages[language].color} <br>`
+                        li += `Pontok: ${languages[language].score} <br> <br>`
+                }
+                document.getElementById("nk").innerHTML = li.replaceAll(undefined, "");
+            }
             
-            console.log(data.ranks.languages);
-            /*for (let i = 0; i < data.ranks.languages; i++) {
-                li += `Rank: ${languages[i].rank} + <br>`
-                li += `Név: ${languages[i].name} + <br>`
-                li += `Szín: ${languages[i].color} + <br>`
-                li += `Pontok: ${languages[i].score} + <br>`
-             
-            }*/
-           
-                        
-                document.getElementById("nk").innerHTML = li;     
+            
+     
     }
     catch(error){
         error = ("Error 404 - User not found")
-        document.getElementById("nk") = error;
+        document.getElementById("nk").innerHTML = error;
     }
     setTimeout(200)
 });
-languageKeresGomb.addEventListener("click", function(){
+/*languageKeresGomb.addEventListener("click", function(){
     document.getElementById("nk").style.visibility = "visible";
+})*/
+$("#languagekeres").click(function (){ 
+    $("#nk").fadeIn(1500)
 })

@@ -1,40 +1,39 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background: rgb(85, 6, 87); 
+body{ 
+    background: linear-gradient(to right, #000428, #004e92);
 }
-
-
-h1, h2 {
-    color: rgb(240, 236, 0);
+.container{ 
+    display: flex;
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+h1 {
+    color: rgb(173, 1, 1);
     margin-top: 20px;
+    font-weight: bold;
+    font-style: italic;
 }
 
-#li{
+#li {
     width: 98vw;
     border-collapse: collapse;
     margin-bottom: 20px;
-}
-
-#li, th, td {
     border: 3px double #00ff6a;
     padding: 2px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: white;
 }
 
-th, #tanhead {
-    background-color: #11b174;
+#eredmeny{
+    display: flex;
+    width: 60vw;
+    justify-content: space-around;
+    align-items: center;
 }
 
-#kontent{
-    margin: auto;
-}
-
-input[type="text"],
-input[type="number"],
-button{
+input[type="text"], button{
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -47,23 +46,18 @@ label{
 }
 
 button{
-    background-color: #4CAF50;
     color: white;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #45a049;
-}
-
-#k, #nk, #ndk, #diakadat, #diakvaltoztatas, #diaktorles {
-    margin-top: 10px;
+#k, #nk{
+    margin: 5px;
     padding: 8px;
-    background-color: #4eb824;
-    color: white;
+    background-image: linear-gradient(62deg, #113558 23%, #53039e 100%);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(250, 240, 183);
     border: 1px solid #c3e6cb;
     border-radius: 4px;
     width: fit-content;
-    visibility: hidden;
     
 }

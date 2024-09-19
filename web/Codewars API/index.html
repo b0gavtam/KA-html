@@ -5,19 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Codewars API</title>
     <script defer src="js/script.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Egy user overall szintjének keresése:</h2>
-        <label for="user">user neve:</label>
+    <div class="container p-5 my-3">
+        <h1 class="text-center">Codewars API</h1>
+        <label for="user">User neve:</label>
         <input type="text" name="felhasználó" id="userid" placeholder="b0gavtam">
-        <button id="overallkeres">Send</button>
-        <div id="k"></div>
-        <h2>Egy user nyelvenkénti szintjének keresése:</h2>
-        <button id="languagekeres">Send</button>
-        <div id="nk"></div>
-
+        <div>
+            <button id="overallkeres" class="bg-primary">Teljes lekérdezés</button>
+            <button id="languagekeres" class="bg-success">Nyelvenkénti lekérdezés</button>
+        </div>
+        <div id="eredmeny">
+            <div id="k"></div>
+            <div id="nk"></div>
+        </div>
     </div>
 </body>
 </html>
