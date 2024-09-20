@@ -8,6 +8,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    border-radius: 4%;
 }
 h1 {
     color: rgb(173, 1, 1);
