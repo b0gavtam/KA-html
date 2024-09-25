@@ -1,0 +1,17 @@
+{
+  "name": "elsogyakorlas",
+  "version": "1.0.0",
+  "description": "node_gyakorlat",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemod index.js"
+  },
+  "author": "b0gavtam",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
